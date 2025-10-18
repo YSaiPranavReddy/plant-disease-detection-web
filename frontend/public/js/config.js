@@ -8,10 +8,10 @@ const isDev =
 export const API_CONFIG = {
   NODE_API: isDev
     ? "http://localhost:3000/api"
-    : "https://your-api.onrender.com/api",
+    : "https://plant-disease-detection-web.onrender.com/api",
   FLASK_API: isDev
     ? "http://localhost:5000"
-    : "https://your-flask-api.onrender.com",
+    : "https://plant-disease-detection-web-flask.onrender.com",
 };
 
 console.log("🌿 Bloom Config loaded");
