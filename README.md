@@ -18,20 +18,6 @@
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Model Performance](#model-performance)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [User Interface Images](#User Interface Images)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
-
 ## 🌟 Overview
 
 **Bloom** is a full-stack web application that leverages deep learning to detect plant diseases from leaf images. With support for **38 different plant disease classes** across 14 crop species, Bloom helps farmers, gardeners, and agricultural professionals quickly identify plant health issues and receive treatment recommendations.
