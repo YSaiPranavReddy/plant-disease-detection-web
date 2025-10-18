@@ -216,9 +216,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ### ⭐ Star this repository if you find it helpful!
 
-**Made with Code and Heart**
-
-[Report Bug](https://github.com/YOUR_USERNAME/bloom-plant-disease/issues) · [Request Feature](https://github.com/YOUR_USERNAME/bloom-plant-disease/issues)
+**Made with Code and Heart**)
 
 </div>
 
