@@ -11,7 +11,7 @@ export const API_CONFIG = {
     : "https://plant-disease-detection-web.onrender.com",
   FLASK_API: isDev
     ? "http://localhost:5000"
-    : "https://plant-disease-detection-web-flask.onrender.com",
+    : "https://saipranav09-bloom-disease-detection.hf.space",
 };
 
 console.log("🌿 Bloom Config loaded");
