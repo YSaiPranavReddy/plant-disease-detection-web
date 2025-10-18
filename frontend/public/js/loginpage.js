@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loginBtn.textContent = "Logging in...";
 
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     signupBtn.textContent = "Creating account...";
 
     try {
-      const response = await fetch(`${API_URL}/auth/signup`, {
+      const response = await fetch(`${API_URL}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
