@@ -12,7 +12,7 @@
 
 **An intelligent AI-powered web application for detecting plant diseases with 97% accuracy using deep learning.**
 
-[Live Demo](https://bloom--plant-disease-detector.vercel.app/) || [Model Training Repo](YOUR_TRAINING_REPO_LINK_HERE)
+[Live Demo](https://bloom--plant-disease-detector.vercel.app/) || [Model Training Repo](https://github.com/YSaiPranavReddy/bloom-project-ml-implementation)
 
 </div>
 
@@ -102,7 +102,7 @@ Output (38 classes) + Softmax
 - **Classes**: 38 disease categories
 - **Split**: 70% train, 20% validation, 10% test
 
-**📚 [View Model Training Code](YOUR_TRAINING_REPO_LINK_HERE)**
+**📚 [View Model Training Code](https://github.com/YSaiPranavReddy/bloom-project-ml-implementation)**
 
 ---
 
