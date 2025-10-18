@@ -25,7 +25,7 @@
 - [Model Performance](#model-performance)
 - [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
-- [Screenshots](#screenshots)
+- [User Interface Images](#User Interface Images)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -153,7 +153,7 @@ Output (38 classes) + Softmax
 ![Pipeline](Pipeline.png)
 ---
 
-## 📸 Screenshots
+## 📸 User Interface Images
 
 ### Landing Page
 ![Landing](Landing.jpg)
@@ -168,7 +168,7 @@ Output (38 classes) + Softmax
 ![Prediction](Prediction.png)
 
 ### PDF Report
-![PDF](Prediction_report.pdf)
+📥 [Prediction Report](Prediction_report.pdf)
 
 ---
 
