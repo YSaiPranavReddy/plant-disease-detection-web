@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Bloom | Plant Disease Prediction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="shortcut icon" type="x-icon" href="Images/logo.webp" />
     <link rel="stylesheet" href="css/mainpage.css" />
     <style>
       body {
@@ -239,7 +241,11 @@
       <div class="profile-badge">
         <img src="Images/plantavatar.png" id="profileAvatar" alt="You" />
         <span id="profileUser"></span>
-        <span class="profile-credits" id="profileCredits" style="display: none;"></span>
+        <span
+          class="profile-credits"
+          id="profileCredits"
+          style="display: none"
+        ></span>
       </div>
     </div>
 
@@ -287,9 +293,12 @@
 
       async function fetchProfile() {
         try {
-          const res = await fetch("http://localhost:3000/api/user/profile", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+          const res = await fetch(
+            "https://plant-disease-detection-web.onrender.com/api/user/profile",
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
           if (!res.ok) throw new Error("Auth failed");
           const data = await res.json();
           user = data.user;
@@ -306,9 +315,9 @@
 
       function updateCreditsBar() {
         document.getElementById("creditsBar").innerHTML = `
-          <strong>Credits:</strong> ${user.credits?.toFixed(2) ?? "0"} 
-          | <strong>Requests Left:</strong> ${Math.floor(user.credits / 0.04)}
-        `;
+      <strong>Credits:</strong> ${user.credits?.toFixed(2) ?? "0"} 
+      | <strong>Requests Left:</strong> ${Math.floor(user.credits / 0.04)}
+    `;
       }
 
       fetchProfile();
@@ -369,11 +378,14 @@
           const formData = new FormData();
           formData.append("image", selectedFile);
 
-          const res = await fetch("http://localhost:5000/predict", {
-            method: "POST",
-            headers: { Authorization: `Bearer ${token}` },
-            body: formData,
-          });
+          const res = await fetch(
+            "https://plant-disease-detection-web-flask.onrender.com/predict",
+            {
+              method: "POST",
+              headers: { Authorization: `Bearer ${token}` },
+              body: formData,
+            }
+          );
           predictionResult = await res.json();
         } catch (e) {
           showError("Error: Prediction service unavailable.");
@@ -383,13 +395,16 @@
 
         if (predictionResult?.disease) {
           try {
-            await fetch("http://localhost:3000/api/user/credits/deduct", {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-              },
-            });
+            await fetch(
+              "https://plant-disease-detection-web.onrender.com/api/user/credits/deduct",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
           } catch (e) {}
 
           fetchProfile();
@@ -406,32 +421,41 @@
       };
 
       function showResult(disease, extra, plant, confidence) {
+        // Store prediction data globally for PDF
+        window.lastPrediction = {
+          plant: plant,
+          disease: disease,
+          treatment: extra,
+          confidence: confidence,
+          timestamp: new Date(),
+          imageData: document.getElementById("preview").querySelector("img")
+            ?.src,
+        };
+
         const toast = document.createElement("div");
         toast.className = "toast-notification";
         toast.innerHTML = `
-          <div class="toast-header">
-            <span style="font-size: 24px;">🌿</span>
-            <span style="flex: 1; margin-left: 10px; font-weight: bold;">Prediction Result</span>
-            <button class="toast-close" onclick="this.parentElement.parentElement.remove()">×</button>
-          </div>
-          <div class="toast-body">
-            <p><strong>Plant:</strong> ${plant || "Unknown"}</p>
-            <p><strong>Disease:</strong> <span style="color: #63b68e;">${disease}</span></p>
-            ${
-              confidence
-                ? `<p><strong>Confidence:</strong> ${confidence}%</p>`
-                : ""
-            }
-            ${
-              extra
-                ? `<p style="margin-top: 10px; font-size: 14px; color: #408268;">${extra}</p>`
-                : ""
-            }
-          </div>
-          <button class="toast-email-btn" onclick="emailResult('${plant}', '${disease}', '${extra}')">
-            📧 Email Results
-          </button>
-        `;
+      <div class="toast-header">
+        <span style="font-size: 24px;">🌿</span>
+        <span style="flex: 1; margin-left: 10px; font-weight: bold;">Prediction Result</span>
+        <button class="toast-close" onclick="this.parentElement.parentElement.remove()">×</button>
+      </div>
+      <div class="toast-body">
+        <p><strong>Plant:</strong> ${plant || "Unknown"}</p>
+        <p><strong>Disease:</strong> <span style="color: #63b68e;">${disease}</span></p>
+        ${
+          confidence ? `<p><strong>Confidence:</strong> ${confidence}%</p>` : ""
+        }
+        ${
+          extra
+            ? `<p style="margin-top: 10px; font-size: 14px; color: #408268;">${extra}</p>`
+            : ""
+        }
+      </div>
+      <button class="toast-email-btn" onclick="downloadPDF()">
+        📥 Download PDF Report
+      </button>
+    `;
 
         document.getElementById("toastContainer").appendChild(toast);
         setTimeout(() => toast.classList.add("toast-show"), 10);
@@ -442,36 +466,197 @@
         }, 10000);
       }
 
-      async function emailResult(plant, disease, treatment) {
-        const confirmed = confirm("Send these results to your email?");
-        if (!confirmed) return;
+      // PDF Download Function
+      function downloadPDF() {
+        console.log("PDF download clicked");
+
+        // Check if jsPDF is loaded
+        if (typeof window.jspdf === "undefined") {
+          alert("❌ PDF library not loaded. Please refresh the page.");
+          return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const prediction = window.lastPrediction;
+
+        if (!prediction) {
+          alert("❌ No prediction data available");
+          return;
+        }
 
         try {
-          const response = await fetch(
-            "http://localhost:3000/api/user/email-results",
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                plant: plant,
-                disease: disease,
-                treatment: treatment,
-              }),
-            }
+          const doc = new jsPDF();
+
+          // Colors
+          const primaryGreen = [99, 182, 142];
+          const darkGreen = [44, 100, 85];
+          const lightGreen = [237, 253, 246];
+
+          // Header with background
+          doc.setFillColor(...primaryGreen);
+          doc.rect(0, 0, 210, 40, "F");
+
+          // Logo/Brand
+          doc.setTextColor(255, 255, 255);
+          doc.setFontSize(24);
+          doc.setFont(undefined, "bold");
+          doc.text("BLOOM", 105, 20, { align: "center" });
+
+          doc.setFontSize(12);
+          doc.setFont(undefined, "normal");
+          doc.text("ONE STOP FOR ALL PLANT CURES", 105, 30, {
+            align: "center",
+          });
+
+          // Reset text color
+          doc.setTextColor(0, 0, 0);
+
+          // Title
+          doc.setFontSize(18);
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...darkGreen);
+          doc.text("Plant Disease Analysis Report", 105, 55, {
+            align: "center",
+          });
+
+          // User Information Box
+          let yPos = 70;
+          doc.setFillColor(...lightGreen);
+          doc.roundedRect(15, yPos, 180, 35, 3, 3, "F");
+
+          doc.setFontSize(11);
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...darkGreen);
+          doc.text("User Information", 20, yPos + 8);
+
+          doc.setFont(undefined, "normal");
+          doc.setTextColor(0, 0, 0);
+          doc.setFontSize(10);
+          doc.text(`Name: ${user.name}`, 20, yPos + 16);
+          doc.text(`Email: ${user.email}`, 20, yPos + 23);
+          doc.text(
+            `Date: ${prediction.timestamp.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}`,
+            20,
+            yPos + 30
+          );
+          doc.text(
+            `Time: ${prediction.timestamp.toLocaleTimeString("en-US", {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+            })}`,
+            120,
+            yPos + 30
           );
 
-          const data = await response.json();
+          // Analysis Results Box
+          yPos = 115;
+          doc.setFillColor(255, 255, 255);
+          doc.setDrawColor(...primaryGreen);
+          doc.setLineWidth(0.5);
+          doc.roundedRect(15, yPos, 180, 50, 3, 3, "FD");
 
-          if (response.ok) {
-            alert("✅ Results sent to your email!");
-          } else {
-            alert("❌ Failed to send email: " + data.error);
+          doc.setFontSize(12);
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...darkGreen);
+          doc.text("Analysis Results", 20, yPos + 8);
+
+          doc.setFont(undefined, "normal");
+          doc.setFontSize(10);
+          doc.setTextColor(0, 0, 0);
+          doc.text(
+            `Plant Type: ${prediction.plant || "Unknown"}`,
+            20,
+            yPos + 18
+          );
+
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...primaryGreen);
+          doc.setFontSize(11);
+          doc.text(`Disease: ${prediction.disease}`, 20, yPos + 28);
+
+          doc.setFont(undefined, "normal");
+          doc.setTextColor(0, 0, 0);
+          doc.setFontSize(10);
+          if (prediction.confidence) {
+            doc.text(
+              `Confidence Level: ${prediction.confidence}%`,
+              20,
+              yPos + 38
+            );
           }
+
+          // Add uploaded image if available
+          yPos = 175;
+          if (prediction.imageData) {
+            try {
+              doc.setFontSize(11);
+              doc.setFont(undefined, "bold");
+              doc.setTextColor(...darkGreen);
+              doc.text("Uploaded Image:", 20, yPos);
+
+              // Add image
+              doc.addImage(prediction.imageData, "JPEG", 20, yPos + 5, 40, 40);
+              yPos = 225;
+            } catch (e) {
+              console.log("Could not add image to PDF:", e);
+              yPos = 185;
+            }
+          }
+
+          // Treatment Recommendation
+          if (prediction.treatment) {
+            doc.setFillColor(...lightGreen);
+            doc.roundedRect(15, yPos, 180, 40, 3, 3, "F");
+
+            doc.setFontSize(11);
+            doc.setFont(undefined, "bold");
+            doc.setTextColor(...darkGreen);
+            doc.text("Recommended Treatment", 20, yPos + 8);
+
+            doc.setFont(undefined, "normal");
+            doc.setFontSize(9);
+            doc.setTextColor(0, 0, 0);
+
+            const splitTreatment = doc.splitTextToSize(
+              prediction.treatment,
+              170
+            );
+            doc.text(splitTreatment, 20, yPos + 16);
+          }
+
+          // Footer
+          doc.setFontSize(8);
+          doc.setTextColor(100, 100, 100);
+          doc.text(
+            "This report is AI-generated. For serious issues, consult a plant pathologist.",
+            105,
+            280,
+            { align: "center" }
+          );
+          doc.text(
+            `Generated by Bloom • ${new Date().toLocaleDateString()}`,
+            105,
+            285,
+            { align: "center" }
+          );
+
+          // Save PDF
+          const filename = `Bloom-Report-${prediction.plant.replace(
+            /\s+/g,
+            "-"
+          )}-${Date.now()}.pdf`;
+          doc.save(filename);
+
+          console.log("PDF saved successfully");
+          alert("✅ PDF downloaded successfully!");
         } catch (error) {
-          alert("❌ Error sending email. Please try again.");
+          console.error("PDF generation error:", error);
+          alert("❌ Error generating PDF: " + error.message);
         }
       }
 
