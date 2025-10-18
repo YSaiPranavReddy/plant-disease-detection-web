@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
         alert("Login successful!");
-        window.location.href = "landingindex.html";
+        window.location.href = "/landingindex.html";
       } else {
         alert(data.error || "Login failed");
       }
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
         alert("Account created successfully!");
-        window.location.href = "landingindex.html";
+        window.location.href = "/landingindex.html";
         // Or the exact filename of your beautiful page
       } else {
         alert(data.error || "Signup failed");
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((res) =>
         res.ok
-          ? (window.location.href = "landingindex.html")
+          ? (window.location.href = "/landingindex.html")
           : localStorage.clear()
       )
       .catch(() => localStorage.clear());

@@ -378,23 +378,26 @@ function filterPlants() {
 // Protect page
 const token = localStorage.getItem("token");
 if (!token) {
-  window.location.href = "loginpage.html"; // Change if your login page is at another path
+  window.location.href = "/loginpage.html"; // Change if your login page is at another path
 }
 
 // Fetch and display user info
 let user = {};
 async function fetchProfile() {
   try {
-    const res = await fetch("http://localhost:3000/api/user/profile", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await fetch(
+      "https://plant-disease-detection-web.onrender.com/api/user/profile",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     if (!res.ok) throw new Error("Auth failed!");
     const data = await res.json();
     user = data.user;
     setupProfileSidebar(user);
   } catch (err) {
     localStorage.clear();
-    window.location.href = "loginpage.html";
+    window.location.href = "/loginpage.html";
   }
 }
 
@@ -418,7 +421,7 @@ function setupProfileSidebar(userData) {
   };
   document.getElementById("logoutBtn").onclick = function () {
     localStorage.clear();
-    window.location.href = "loginpage.html";
+    window.location.href = "/loginpage.html";
   };
 }
 

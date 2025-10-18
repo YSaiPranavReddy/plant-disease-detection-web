@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="Images/logo.webp" />
     <link rel="stylesheet" href="css/landing.css" />
     <link rel="stylesheet" href="css/mainpage.css" />
     <!-- GSAP -->
@@ -59,7 +60,7 @@
           <p>The future is green. Let it <span>bloom</span> with us.</p>
           <button
             class="Identify"
-            onclick="window.location.href='prediction.html'"
+            onclick="window.location.href='/prediction.html'"
           >
             Identify Now
           </button>
@@ -82,7 +83,7 @@
               <p style="font-size: 1.5rem">Diseases Identified</p>
             </div>
             <div class="stat-item">
-              <h3 style="font-size: 5rem">82%</h3>
+              <h3 style="font-size: 5rem">97.2%</h3>
               <p style="font-size: 1.5rem">Detection Accuracy</p>
             </div>
           </div>
@@ -97,249 +98,256 @@
 
               <div class="plants-gallery">
                 <div class="marquee-container">
-                  <!-- First row -->
+                  <!-- Row 1: Left to Right -->
                   <div class="marquee-content">
+                    <!-- Apple -->
                     <div class="plant-item">
                       <div class="plant-header">
-                        <div class="plant-icon"></div>
+                        <div class="plant-icon">🍎</div>
                         <h3 class="plant-name">Apple</h3>
                       </div>
                       <ul class="plant-diseases">
                         <li>Apple Scab</li>
                         <li>Black Rot</li>
                         <li>Cedar Apple Rust</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Cherry -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍒</div>
+                        <h3 class="plant-name">Cherry</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Powdery Mildew</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Corn (Maize) -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🌽</div>
+                        <h3 class="plant-name">Corn (Maize)</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Cercospora Leaf Spot</li>
+                        <li>Common Rust</li>
+                        <li>Northern Leaf Blight</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Grape -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍇</div>
+                        <h3 class="plant-name">Grape</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Black Rot</li>
+                        <li>Esca (Black Measles)</li>
+                        <li>Leaf Blight</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Orange -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍊</div>
+                        <h3 class="plant-name">Orange</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Citrus Greening</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Peach -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍑</div>
+                        <h3 class="plant-name">Peach</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Bacterial Spot</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Duplicate for smooth scrolling -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍎</div>
+                        <h3 class="plant-name">Apple</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Apple Scab</li>
+                        <li>Black Rot</li>
+                        <li>Cedar Apple Rust</li>
+                        <li>Healthy</li>
                       </ul>
                     </div>
 
                     <div class="plant-item">
                       <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
+                        <div class="plant-icon">🫐</div>
+                        <h3 class="plant-name">Blueberry</h3>
                       </div>
                       <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Apple</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Apple Scab</li>
-                        <li>Black Rot</li>
-                        <li>Cedar Apple Rust</li>
+                        <li>Healthy</li>
                       </ul>
                     </div>
 
-                    <!-- Duplicate this plant-item several times -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍒</div>
+                        <h3 class="plant-name">Cherry</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Powdery Mildew</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
                   </div>
 
-                  <!-- Second row (reverse direction) -->
+                  <!-- Row 2: Right to Left (Reverse) -->
                   <div class="marquee-content-reverse">
+                    <!-- Bell Pepper -->
                     <div class="plant-item">
                       <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
+                        <div class="plant-icon">🫑</div>
+                        <h3 class="plant-name">Bell Pepper</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Bacterial Spot</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Potato -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🥔</div>
+                        <h3 class="plant-name">Potato</h3>
                       </div>
                       <ul class="plant-diseases">
                         <li>Early Blight</li>
                         <li>Late Blight</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Raspberry -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍓</div>
+                        <h3 class="plant-name">Raspberry</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Soybean -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🌱</div>
+                        <h3 class="plant-name">Soybean</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Squash -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🎃</div>
+                        <h3 class="plant-name">Squash</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Powdery Mildew</li>
+                      </ul>
+                    </div>
+
+                    <!-- Strawberry -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">�草</div>
+                        <h3 class="plant-name">Strawberry</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Leaf Scorch</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Tomato -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍅</div>
+                        <h3 class="plant-name">Tomato</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Bacterial Spot</li>
+                        <li>Early Blight</li>
+                        <li>Late Blight</li>
                         <li>Leaf Mold</li>
+                        <li>Septoria Leaf Spot</li>
+                        <li>Spider Mites</li>
+                        <li>Target Spot</li>
+                        <li>Yellow Leaf Curl Virus</li>
+                        <li>Mosaic Virus</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
+
+                    <!-- Duplicate for smooth scrolling -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🫑</div>
+                        <h3 class="plant-name">Bell Pepper</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Bacterial Spot</li>
+                        <li>Healthy</li>
                       </ul>
                     </div>
 
                     <div class="plant-item">
                       <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
+                        <div class="plant-icon">🥔</div>
+                        <h3 class="plant-name">Potato</h3>
                       </div>
                       <ul class="plant-diseases">
                         <li>Early Blight</li>
                         <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
-                      </ul>
-                    </div>
-                    <div class="plant-item">
-                      <div class="plant-header">
-                        <div class="plant-icon"></div>
-                        <h3 class="plant-name">Tomato</h3>
-                      </div>
-                      <ul class="plant-diseases">
-                        <li>Early Blight</li>
-                        <li>Late Blight</li>
-                        <li>Leaf Mold</li>
+                        <li>Healthy</li>
                       </ul>
                     </div>
 
-                    <!-- Duplicate this plant-item several times -->
+                    <div class="plant-item">
+                      <div class="plant-header">
+                        <div class="plant-icon">🍅</div>
+                        <h3 class="plant-name">Tomato</h3>
+                      </div>
+                      <ul class="plant-diseases">
+                        <li>Bacterial Spot</li>
+                        <li>Early Blight</li>
+                        <li>Late Blight</li>
+                        <li>Leaf Mold</li>
+                        <li>Septoria Leaf Spot</li>
+                        <li>Spider Mites</li>
+                        <li>Target Spot</li>
+                        <li>Yellow Leaf Curl Virus</li>
+                        <li>Mosaic Virus</li>
+                        <li>Healthy</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
