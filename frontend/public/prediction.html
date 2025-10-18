@@ -309,7 +309,7 @@
           updateCreditsBar();
         } catch (e) {
           localStorage.clear();
-          window.location.href = "loginpage.html";
+          window.location.href = "/loginpage.html";
         }
       }
 
@@ -379,7 +379,7 @@
           formData.append("image", selectedFile);
 
           const res = await fetch(
-            "https://plant-disease-detection-web-flask.onrender.com/predict",
+            "https://saipranav09-bloom-disease-detection.hf.space/predict",
             {
               method: "POST",
               headers: { Authorization: `Bearer ${token}` },
