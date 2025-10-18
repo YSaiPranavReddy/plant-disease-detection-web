@@ -8,7 +8,7 @@ const isDev =
 export const API_CONFIG = {
   NODE_API: isDev
     ? "http://localhost:3000/api"
-    : "https://plant-disease-detection-web.onrender.com/api",
+    : "https://plant-disease-detection-web.onrender.com",
   FLASK_API: isDev
     ? "http://localhost:5000"
     : "https://plant-disease-detection-web-flask.onrender.com",
