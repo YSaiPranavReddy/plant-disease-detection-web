@@ -6,6 +6,8 @@ import os
 from werkzeug.utils import secure_filename
 from PIL import Image
 import io
+import keras
+
 
 app = Flask(__name__)
 
@@ -53,11 +55,14 @@ CLASS_NAMES = [
 # Load model once at startup
 print("Loading model...")
 model = None
+# Try loading with Keras 3 API
 try:
-    model = tf.keras.models.load_model(MODEL_PATH)
-    print(f"✅ Model loaded successfully from {MODEL_PATH}")
-except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    model = keras.saving.load_model(MODEL_PATH, compile=False)
+    print(f"✅ Model loaded with Keras 3 API")
+except:
+    # Fallback to TF API
+    model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+    print(f"✅ Model loaded with TF API")
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
