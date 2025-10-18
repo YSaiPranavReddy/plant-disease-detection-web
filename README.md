@@ -83,9 +83,10 @@ A user-friendly web platform that:
 | **Custom Neural Network** | NumPy (from scratch) | **92%** | Built custom backpropagation and gradient descent algorithms |
 
 ### Model Architecture (TensorFlow)
+```
 Input (128x128x3)
 ↓
-Conv2D + ReLU + MaxPool (×3 blocks)
+Conv2D + ReLU + MaxPool (×5 blocks)
 ↓
 Flatten + Dense (512) + Dropout(0.5)
 ↓
@@ -93,6 +94,7 @@ Dense (256) + Dropout(0.3)
 ↓
 Output (38 classes) + Softmax
 
+```
 
 ### Dataset
 - **Source**: PlantVillage Dataset
