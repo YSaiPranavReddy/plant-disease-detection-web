@@ -1019,6 +1019,11 @@ button:hover {
     text-align: center;
     width: 90%;
   }
+
+  .header {
+    position: relative;
+    z-index: 9999;
+  }
   .hero .image1 {
     width: 80%;
   }
@@ -1032,6 +1037,11 @@ button:hover {
   .main .header {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .header {
+    position: relative;
+    z-index: 9999;
   }
   .hero {
     flex-direction: column;
@@ -1087,6 +1097,11 @@ button:hover {
     font-size: 11px;
   }
 
+  .header {
+    position: relative;
+    z-index: 9999;
+  }
+
   .hero .image1 {
     width: 72%;
     height: 450px;
@@ -1130,6 +1145,11 @@ button:hover {
     margin-left: -8px;
     gap: 6px;
     font-size: 11px;
+  }
+
+  .header {
+    position: relative;
+    z-index: 9999;
   }
 
   .hero .image1 {
