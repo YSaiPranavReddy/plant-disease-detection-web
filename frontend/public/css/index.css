@@ -111,6 +111,7 @@ body {
   margin-left: 60px;
   color: rgb(44, 100, 85);
   font-size: 30px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
@@ -128,6 +129,7 @@ body {
 .Identify {
   padding: 18px;
   font-size: 16px;
+  margin-top: 10px;
   font-weight: 700;
   color: white;
   background-color: #77c193;
@@ -640,6 +642,21 @@ button:hover {
   border-radius: 10px; /* Round corners for the track */
 }
 
+@media (max-width: 1440px) {
+  .header {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .navbarb ul li {
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: 500;
+  }
+}
+
 @media screen and (max-width: 768px) {
   /* Header/Navigation Styling */
   .header {
@@ -667,11 +684,13 @@ button:hover {
   .navbarb ul {
     gap: 15px;
     font-size: 12px;
-    padding: 10px;
+    padding: 1px;
+    cursor: pointer;
   }
 
   .navbarb ul li {
-    font-size: 19px;
+    font-size: 18px;
+    margin-right: 10px;
     font-weight: 500;
   }
 
@@ -686,6 +705,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin-top: -80px;
     width: 100%;
   }
 
@@ -715,9 +735,9 @@ button:hover {
     color: rgb(44, 100, 85);
     text-align: center;
     font-size: 18.5px;
-    margin-left: -48px;
+    margin-left: -42px;
     font-weight: 500;
-    margin-top: 307px;
+    margin-top: 377px;
   }
 
   /* Button */
@@ -727,6 +747,8 @@ button:hover {
     padding: 15px;
     margin: 0px auto;
     border-radius: 25px;
+    margin-top: 20px;
+    margin-right: 70px;
     display: block;
   }
 
@@ -816,6 +838,10 @@ button:hover {
     padding: 20px;
     flex-direction: column;
     gap: 30px;
+  }
+
+  .how-to-use img {
+    margin-bottom: 60px;
   }
 
   /* Process Section */
