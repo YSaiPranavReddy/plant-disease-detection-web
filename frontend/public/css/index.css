@@ -1013,7 +1013,7 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 300px) {
   /* Header/Navigation Styling */
   .header {
     width: 100%;
