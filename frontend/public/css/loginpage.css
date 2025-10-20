@@ -11,7 +11,6 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .header {
@@ -189,7 +188,7 @@ body {
   margin-left: 8%;
 }
 
-.loginside button{
+.loginside button {
   margin-top: 25px;
 }
 
@@ -415,5 +414,12 @@ footer .image img {
   .google p,
   .facebook p {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    width: 100vw;
+    overflow-x: hidden;
   }
 }
