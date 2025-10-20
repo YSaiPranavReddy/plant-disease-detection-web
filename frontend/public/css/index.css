@@ -1013,15 +1013,359 @@ button:hover {
   }
 }
 
-/* For even smaller screens */
 @media screen and (max-width: 480px) {
-  .navbarb ul {
+  /* Header/Navigation Styling */
+  .header {
+    width: 100%;
+    flex-direction: column;
+    padding: 8px;
     gap: 10px;
-    font-size: 14px;
+  }
+
+  /* Logo Section */
+  .sub-top-logo {
+    padding: 4px;
+  }
+
+  .sub-top-logo img {
+    width: 30px;
   }
 
   .sub-top-logo a {
-    font-size: 24px;
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  /* Navigation Menu */
+  .navbarb ul {
+    gap: 15px;
+    font-size: 12px;
+    padding: 1px;
+    cursor: pointer;
+  }
+
+  .navbarb ul li {
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: 500;
+  }
+
+  /* Adjust main container */
+  .main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: -80px;
+    width: 100%;
+  }
+
+  .hero .image1 {
+    margin-top: 85px;
+    width: 60%;
+    margin-right: 6%;
+  }
+
+  .hero .heading1 > :nth-child(1) {
+    color: rgb(44, 100, 85);
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: -435px;
+    align-self: center;
+    margin-left: 0px;
+  }
+
+  .image1 img {
+    width: 90%;
+    margin-top: 80px;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .hero .heading1 > :nth-child(2) {
+    color: rgb(44, 100, 85);
+    text-align: center;
+    font-size: 18.5px;
+    margin-left: -42px;
+    font-weight: 500;
+    margin-top: 377px;
+  }
+
+  /* Button */
+  .Identify {
+    width: 80%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 0px auto;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-right: 70px;
+    display: block;
+  }
+
+  /* Assistance Section */
+  .assistancesection {
+    padding: 20px 0;
+    height: auto;
+  }
+
+  .assistance {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+  }
+
+  .assistance .heading2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .assistance .subject2 {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  /* Scrollable Grid Container */
+  .grid-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Card Styling */
+  .card {
+    flex: 0 0 auto;
+    width: 250px;
+    min-width: 250px;
+    height: 300px; /* Increased height */
+    scroll-snap-align: start;
+    margin-right: 5px;
+  }
+
+  /* First card (Start diagnosing) adjustments */
+  .card.first .icon img {
+    width: 35px; /* Smaller logo */
+    height: 35px;
+  }
+
+  .card.first .text {
+    font-size: 14px; /* Slightly smaller text */
+    margin-top: 8px;
+  }
+
+  /* Normal cards with images */
+  .card.normal {
+    position: relative;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Maintain other card styles */
+  .hover-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:active .hover-overlay {
+    opacity: 1;
+  }
+
+  /* How to Use Section */
+  .useandfaq {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .how-to-use {
+    width: 90%;
+    padding: 20px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .how-to-use img {
+    margin-bottom: 60px;
+  }
+
+  /* Process Section */
+  .process {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* Heading */
+  .process > p {
+    position: relative;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+    margin-top: -520px;
+    margin-bottom: 387px;
+    order: 1;
+  }
+  .img {
+    margin-top: 130px;
+  }
+
+  /* Image */
+  .howtouse1 {
+    order: 2;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .howtouse2 {
+    display: none;
+  }
+
+  /* Steps List */
+  .process ol {
+    order: 3;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .process ol li {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Circle Numbers */
+  .circle-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    margin-right: 12px;
+  }
+
+  /* Identify Button */
+  .process > .Identify {
+    order: 4;
+    width: 80%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 25px;
+  }
+
+  /* FAQ Section Container */
+  .container {
+    width: 85%;
+    margin: 30px auto;
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  /* FAQ Title */
+  .title {
+    font-size: 28px;
+    padding: 12px;
+    margin-bottom: 18px;
+  }
+
+  /* Accordion Container */
+  .accordion {
+    max-height: 400px;
+    padding: 0 12px;
+  }
+
+  /* Accordion Items */
+  .accordion-header {
+    padding: 15px;
+  }
+
+  .accordion-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* Accordion Content */
+  .accordion-body {
+    padding: 15px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Accordion Icon */
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .accordion-icon::before {
+    width: 10px;
+  }
+
+  .accordion-icon::after {
+    height: 10px;
+  }
+
+  /* Animation adjustments */
+  .accordion-content.active {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  /* Footer Section */
+  .footer {
+    margin-top: 50px;
+    height: 300px; /* Reduced height for mobile */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footercontent {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .footercontent > p {
+    padding: 15px;
+    font-size: 24px; /* Reduced font size */
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .footercontent > p span {
+    color: rgb(44, 100, 85);
+  }
+
+  .footercontent .Identify {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 16px;
+    background-color: rgb(242, 181, 191);
+    border-radius: 25px;
+  }
+
+  .footercontent .Identify:hover {
+    background-color: palevioletred;
   }
 }
 
