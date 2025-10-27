@@ -1,110 +1,108 @@
 /** Importing Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-/*. Styling Starts Here */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Montserrat", serif;
 }
 
 body {
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .header {
+  width: 100%;
+  text-align: center;
+  padding: 0px 0;
   animation: fadeInUp 0.8s ease-out;
-  margin-bottom: 50px;
 }
 
 .header .head-img img {
-  width: 138vw;
-  margin-left: -400px;
-  margin-bottom: -200px;
+  max-width: 500px;
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
+
 .sub-top-logo {
-  position: absolute;
-  top: 0px;
-  right: 50px;
-  left: 50px;
+  text-align: center;
+  margin: 20px 0;
 }
+
 .sub-top-logo a {
-  display: flex;
-  font-size: 35px;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
+  font-size: 32px;
   color: #2c6455;
   text-decoration: none;
   font-weight: 700;
-  padding: 20px;
+  gap: 10px;
 }
 
 .sub-top-logo img {
   width: 40px;
-  padding-right: 8px;
+  height: 40px;
 }
 
 .main {
-  width: 69vw;
-  height: auto;
-  margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  margin: 4px auto;
   display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
 }
 
 .side-headings {
-  width: 50%;
+  flex: 1;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .side-headings img {
-  width: 55%;
+  width: 80%;
+  margin-top: -80px;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
 
 .side-headings :nth-child(2) {
   color: rgb(99, 182, 142);
   font-weight: 700;
-  font-size: 24px;
-  padding: 10px;
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
 .side-headings :nth-child(3) {
   color: rgb(113, 128, 150);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .login {
-  margin-top: -20px;
-  width: 45%;
-  height: 50%;
-}
-
-.login .loginside .signupside {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 13px;
-  margin: 20px;
-  border: 1px solid #e0e0e0;
-}
-
-.signupside {
-  height: 55%;
+  flex: 1;
+  max-width: 500px;
 }
 
 .login .card {
   width: 100%;
-  height: 540px; /* Base height */
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 13px;
-  margin: 20px;
+  min-height: 480px;
+  background-color: white;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
   border: 1px solid #e0e0e0;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s, height 0.5s;
+  transition: transform 0.8s, min-height 0.5s;
 }
 
 .loginside,
@@ -114,7 +112,8 @@ body {
   height: 100%;
   backface-visibility: hidden;
   background-color: white;
-  border-radius: 13px;
+  border-radius: 18px;
+  padding: 6.3px 45px;
 }
 
 .signupside {
@@ -123,170 +122,174 @@ body {
 
 .card.flipped {
   transform: rotateY(180deg);
-  height: 620px; /* Increased height for signup side */
+  min-height: 650px;
 }
 
-.createnew {
-  margin-top: 7px;
-  margin-left: 10px;
+.createnew,
+.backtologin {
+  text-align: right;
+  margin-bottom: 12px;
 }
 
 .createnew a,
 .backtologin a {
   color: rgb(99, 182, 142);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  margin-left: 59.4%;
+  transition: color 0.3s;
 }
 
-.heading p {
+.createnew a:hover,
+.backtologin a:hover {
+  color: rgb(44, 100, 85);
+}
+
+.loginside .heading p {
   text-align: center;
-  margin-top: 4.5px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
-  padding: 20px;
+  margin-bottom: 28.3px;
+  color: rgb(44, 100, 85);
+}
+
+.signupside .heading p {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8.3px;
   color: rgb(44, 100, 85);
 }
 
 .loginform {
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-.loginform input {
-  padding: 18px;
-  width: 90%;
-  margin: 0 5% 15px 5%;
-  border-radius: 8px;
+/* .loginform input {
+  padding: 18px 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
   border: 2px solid rgb(211, 204, 204);
   box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s;
+} */
+
+.loginform input {
+  padding: 18px 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 2px solid rgb(211, 204, 204);
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: border-color 0.3s;
+}
+
+.signupside .loginform input {
+  margin-bottom: 7px;
+}
+
+.loginform input:focus {
+  outline: none;
+  border-color: rgb(99, 182, 142);
+}
+
+.loginform input::placeholder {
+  color: #aaa;
+  font-size: 16px;
 }
 
 .loginform p {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   color: rgb(113, 128, 150);
-  padding-top: 12px;
-  padding-left: 55px;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  padding-left: 4px;
 }
-
-/* #7ADFAF */
 
 .loginside button,
 .signupside button {
   background-color: #7adfaf;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  width: 85%;
-  padding: 22px;
-  border: 2px solid;
-  border-radius: 32px;
-  margin-top: 10px;
-  margin-left: 8%;
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 50px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.loginside button {
-  margin-top: 25px;
-}
-
-.signupside .sigupbtn {
-  margin-bottom: 0px;
-}
-
-.signupside button:hover,
-.loginside button:hover {
+.loginside button:hover,
+.signupside button:hover {
   background-color: rgb(99, 182, 142);
-  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(122, 223, 175, 0.5);
 }
 
-.loginside > p {
+.fpwd {
+  text-align: center;
   color: rgb(99, 182, 142);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  text-align: center;
-  padding: 20px;
-}
-
-.or {
-  text-align: center;
-  position: relative;
-  opacity: 0;
-}
-
-.otheroptions {
-  opacity: 0;
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
+  cursor: pointer;
+  transition: color 0.3s;
+  display: block;
   margin-top: 10px;
-  margin-bottom: 25px;
-}
-.google {
-  width: 45%;
-  display: flex;
-  border: 1px solid rgb(231, 227, 227);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  border-radius: 10px;
-  margin-right: 5%;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.facebook {
-  width: 45%;
-  display: flex;
-  border: 1px solid rgb(255, 255, 255);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  border-radius: 10px;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.google,
-.facebook p {
-  font-size: 16px;
-}
-
-svg {
-  width: 10%;
-  margin-right: 3%;
-}
-
-footer .image img {
-  width: 100vw;
 }
 
 .fpwd:hover {
-  text-decoration-line: underline;
   color: rgb(158, 36, 36);
-  cursor: pointer;
+  text-decoration: underline;
 }
 
 .password-container {
   position: relative;
-  width: 90%;
-  margin: 0 5% 0 5%;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.password-toggle {
+.signupside .loginform p {
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* .password-toggle {
   position: absolute;
-  right: 12px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   display: flex;
   align-items: center;
+  z-index: 10;
+} */
+
+.password-toggle {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  z-index: 10;
 }
 
 .password-toggle svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.password-toggle:hover svg {
+  color: rgb(99, 182, 142);
 }
 
 .eye-closed {
@@ -301,88 +304,38 @@ footer .image img {
   display: block;
 }
 
-/* Adjust input padding to accommodate the icon */
 .password-container input {
-  width: 100%;
-  padding: 16px;
-  padding-right: 40px !important;
-  margin: 0;
-  border-radius: 8px;
-  border: 2px solid rgb(211, 204, 204);
-  box-sizing: border-box;
+  padding-right: 55px !important;
 }
 
-/* Add responsive styles */
-@media screen and (max-width: 1200px) {
-  .main {
-    width: 70vw;
-  }
-}
-
+/* Responsive Design */
 @media screen and (max-width: 992px) {
   .main {
-    width: 80vw;
-  }
-
-  .header .head-img img {
-    width: 150vw;
-    margin-left: -200px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .main {
-    width: 90vw;
     flex-direction: column;
-    align-items: center;
+    width: 95%;
   }
 
   .side-headings {
     width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .side-headings img {
-    width: 40%;
   }
 
   .login {
     width: 100%;
-  }
-
-  .login .card {
-    max-width: 400px;
-    margin: 20px auto;
-  }
-
-  .createnew a,
-  .backtologin a {
-    margin-left: 50%;
-  }
-
-  .header .head-img img {
-    width: 200vw;
-    margin-left: -150px;
+    max-width: 500px;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
-  .header {
-    margin-bottom: 30px;
-  }
-
-  .header .head-img img {
-    width: 250vw;
-    margin-left: -100px;
-  }
-
-  .sub-top-logo {
-    left: 20px;
-    right: 20px;
+  .main {
+    width: 95%;
+    padding: 20px 0;
   }
 
   .sub-top-logo a {
@@ -390,36 +343,115 @@ footer .image img {
   }
 
   .side-headings img {
-    width: 60%;
+    max-width: 250px;
+  }
+
+  .side-headings img {
+    width: 80%;
+    margin-top: 10px;
+    max-width: 300px;
+    margin-bottom: 20px;
   }
 
   .side-headings :nth-child(2) {
-    font-size: 20px;
-    text-align: center;
+    font-size: 23px;
+  }
+
+  .side-headings :nth-child(3) {
+    font-size: 17px;
+  }
+
+  .login .card {
+    min-height: 580px;
+  }
+
+  .createnew,
+  .backtologin {
+    font-size: 12px;
+    text-align: right;
+    margin-top: -20px;
+  }
+
+  .createnew a,
+  .backtologin a {
+    font-size: 12px;
+    text-align: right;
+    margin-top: -20px;
+  }
+
+  .loginside,
+  .signupside {
+    padding: 32px 35px;
+  }
+
+  .heading p {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .loginform input {
+    padding: 16px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sub-top-logo a {
+    font-size: 24px;
+  }
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .side-headings img {
+    max-width: 200px;
+  }
+
+  .side-headings :nth-child(2) {
+    font-size: 21px;
   }
 
   .side-headings :nth-child(3) {
     font-size: 16px;
-    text-align: center;
   }
 
   .login .card {
-    margin: 10px;
+    min-height: 520px;
   }
 
-  .otheroptions {
-    width: 90%;
+  .loginside,
+  .signupside {
+    padding: 30px 25px;
   }
 
-  .google p,
-  .facebook p {
+  .heading p {
+    font-size: 25px;
+  }
+
+  .loginform input {
+    padding: 15px;
     font-size: 14px;
+  }
+
+  .loginside button,
+  .signupside button {
+    padding: 16px;
+    font-size: 17px;
   }
 }
 
-@media screen and (max-width: 400px) {
-  body {
-    width: 100vw;
-    overflow-x: hidden;
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
