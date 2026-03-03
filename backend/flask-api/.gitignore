@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Environment
+.env
+.env.local
+
+# Uploaded images
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Model files (if using git-lfs or hosting separately)
+models/*.keras
+models/*.h5
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
