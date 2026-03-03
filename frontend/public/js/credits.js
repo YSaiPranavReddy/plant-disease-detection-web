@@ -6,7 +6,11 @@ export async function getCredits() {
   const token = localStorage.getItem("token");
 
   try {
+<<<<<<< HEAD
     const response = await fetch(`${API_URL}/api/user/credits`, {
+=======
+    const response = await fetch(`${API_URL}/credits`, {
+>>>>>>> eabecb719819e77d343788f4e3a9af80e6c5c542
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -25,7 +29,11 @@ export async function checkCredits() {
   const token = localStorage.getItem("token");
 
   try {
+<<<<<<< HEAD
     const response = await fetch(`${API_URL}/api/user/credits/check`, {
+=======
+    const response = await fetch(`${API_URL}/credits/check`, {
+>>>>>>> eabecb719819e77d343788f4e3a9af80e6c5c542
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -48,7 +56,11 @@ export async function deductCredits() {
   const token = localStorage.getItem("token");
 
   try {
+<<<<<<< HEAD
     const response = await fetch(`${API_URL}/api/user/credits/deduct`, {
+=======
+    const response = await fetch(`${API_URL}/credits/deduct`, {
+>>>>>>> eabecb719819e77d343788f4e3a9af80e6c5c542
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
