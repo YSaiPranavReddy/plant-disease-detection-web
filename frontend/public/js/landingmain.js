@@ -2,6 +2,9 @@ import * as THREE from "three";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler";
+import { API_CONFIG } from "./config.js";
+
+const API_URL = API_CONFIG.NODE_API;
 
 // Initialize globe for preview
 function initPreview() {
@@ -31,7 +34,7 @@ function init(container) {
     40,
     container.clientWidth / container.clientHeight,
     0.1,
-    1000
+    1000,
   );
 
   const height = container.clientHeight * scaleFactor;
@@ -75,7 +78,7 @@ function init(container) {
           color: 0xbbde2d,
           transparent: true,
           opacity: 0.6,
-        })
+        }),
       );
       this.vertices = [];
 
@@ -97,7 +100,7 @@ function init(container) {
       }
       this.geometry.setAttribute(
         "position",
-        new THREE.Float32BufferAttribute(this.vertices, 3)
+        new THREE.Float32BufferAttribute(this.vertices, 3),
       );
     }
   }
@@ -143,7 +146,7 @@ function init(container) {
             .rotateY(Math.PI);
         }
       }
-    }
+    },
   );
 
   new OBJLoader().load(
@@ -158,23 +161,23 @@ function init(container) {
       earth.geometry.scale(0.35, 0.35, 0.35);
 
       let positions = Array.from(
-        earth.geometry.attributes.position.array
+        earth.geometry.attributes.position.array,
       ).splice(0, 3960 * 3);
       const landGeom = new THREE.BufferGeometry();
       landGeom.setAttribute(
         "position",
-        new THREE.Float32BufferAttribute(positions, 3)
+        new THREE.Float32BufferAttribute(positions, 3),
       );
       const land = new THREE.Mesh(landGeom);
 
       positions = Array.from(earth.geometry.attributes.position.array).splice(
         3960 * 3,
-        540 * 3
+        540 * 3,
       );
       const waterGeom = new THREE.BufferGeometry();
       waterGeom.setAttribute(
         "position",
-        new THREE.Float32BufferAttribute(positions, 3)
+        new THREE.Float32BufferAttribute(positions, 3),
       );
       waterGeom.computeVertexNormals();
 
@@ -204,11 +207,11 @@ function init(container) {
       const maxDimension = Math.max(
         groupBox.getSize(new THREE.Vector3()).x,
         groupBox.getSize(new THREE.Vector3()).y,
-        groupBox.getSize(new THREE.Vector3()).z
+        groupBox.getSize(new THREE.Vector3()).z,
       );
       const scale = 200 / maxDimension;
       group.scale.set(scale, scale, scale);
-    }
+    },
   );
 
   // Animation loop
@@ -268,7 +271,7 @@ window.addEventListener("load", () => {
       duration: 0.3,
       ease: "power2.inOut",
     },
-    "-=0.3"
+    "-=0.3",
   );
 });
 
@@ -321,7 +324,7 @@ const observer = new IntersectionObserver(
         statNumbers.forEach((stat) => {
           // Get the final number from the original text
           const finalNumber = parseInt(
-            stat.getAttribute("data-value") || stat.innerText
+            stat.getAttribute("data-value") || stat.innerText,
           );
           // Reset to 0 before animating
           stat.innerText = "0";
@@ -333,7 +336,7 @@ const observer = new IntersectionObserver(
   },
   {
     threshold: 0.2,
-  }
+  },
 );
 
 // Start observing when document is loaded
@@ -344,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const marqueeContents = document.querySelectorAll(
-    ".marquee-content, .marquee-content-reverse"
+    ".marquee-content, .marquee-content-reverse",
   );
 
   marqueeContents.forEach((content) => {
@@ -385,12 +388,9 @@ if (!token) {
 let user = {};
 async function fetchProfile() {
   try {
-    const res = await fetch(
-      "https://plant-disease-detection-web.onrender.com/api/user/profile",
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
+    const res = await fetch(`${API_URL}/api/user/profile`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     if (!res.ok) throw new Error("Auth failed!");
     const data = await res.json();
     user = data.user;
@@ -408,7 +408,7 @@ function setupProfileSidebar(userData) {
   document.getElementById("profileEmail").textContent = userData.email;
   document.getElementById("profileCredits").textContent = userData.credits;
   document.getElementById("profileRequests").textContent = Math.floor(
-    userData.credits / 0.04
+    userData.credits / 0.04,
   );
   document.getElementById("profileAvatar").src = "Images/plantavatar.png"; // Use your own image
 
