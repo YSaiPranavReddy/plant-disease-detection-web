@@ -149,17 +149,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if already logged in
   const token = localStorage.getItem("token");
   if (token) {
-<<<<<<< HEAD
     fetch(`${API_URL}/api/user/profile`, {
-=======
-    fetch(`${API_URL}/user/profile`, {
->>>>>>> eabecb719819e77d343788f4e3a9af80e6c5c542
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) =>
         res.ok
           ? (window.location.href = "/landingindex.html")
-          : localStorage.clear()
+          : localStorage.clear(),
       )
       .catch(() => localStorage.clear());
   }
