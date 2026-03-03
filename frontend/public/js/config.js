@@ -7,12 +7,8 @@ const isDev =
 // Export API URLs
 export const API_CONFIG = {
   NODE_API: isDev
-<<<<<<< HEAD
     ? "http://localhost:3000"
-=======
-    ? "http://localhost:3000/api"
->>>>>>> eabecb719819e77d343788f4e3a9af80e6c5c542
-    : "https://plant-disease-detection-web.onrender.com",
+    : "https://bloom-node-api.onrender.com",
   FLASK_API: isDev
     ? "http://localhost:5000"
     : "https://saipranav09-bloom-disease-detection.hf.space",
